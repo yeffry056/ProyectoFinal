@@ -49,5 +49,11 @@ namespace ProyectoFinal
             cCliente cliente = new cCliente();
             cliente.Show();
         }
+
+        private void EmpleadosClick(object sender, RoutedEventArgs e)
+        {
+            rEmpleado empleado = new rEmpleado();
+            empleado.Show();
+        }
     }
 }

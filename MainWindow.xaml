@@ -10,9 +10,10 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Menu Height="23" Width="62" VerticalAlignment="Top">
-                    <MenuItem Header="Registros">
+                    <MenuItem Header="Registros" Click="EmpleadosClick">
                         <MenuItem Header="Registro Clientes" Click="rClientesClik" />
                         <MenuItem Header="Registro Usuarios " Click="RegistrosClik"/>
+                        <MenuItem Header="Registro Empleados" Click="EmpleadosClick" />
                     </MenuItem>
                 </Menu>
                 <Menu Height="23" Width="737" VerticalAlignment="Top">
@@ -21,6 +22,7 @@
                         <MenuItem Header="Consulta de Usuarios " Click="ConsultaUsuario"/>
                     </MenuItem>
                 </Menu>
+              
 
             </StackPanel>
             <Image Height="411" Width="800"  Stretch="Fill" Source="/Resources/FondoTaller.jpg"/>

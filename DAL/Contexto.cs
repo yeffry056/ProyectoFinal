@@ -12,10 +12,13 @@ namespace ProyectoFinal.DAL
     {
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Empleados> Empleados { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite(@"Data Source = DATA\TalleresNelson.db");
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

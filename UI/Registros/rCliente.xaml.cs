@@ -165,11 +165,6 @@ namespace ProyectoFinal.UI.Registros
             else
                 MessageBox.Show("No fue posible eliminar el registro", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
         }
-
-        /*private void Activo(object sender, RoutedEventArgs e)
-        {
-            usuario.Activo = CheckActivo.Content.ToString();
-        }*/
     
     }
 }
