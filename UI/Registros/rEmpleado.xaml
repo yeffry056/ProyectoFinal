@@ -8,19 +8,19 @@
         Title="Empleado" Height="450" Width="800">
     <Grid>
         <Label Content="EmpleadoId" HorizontalAlignment="Left" Margin="57,64,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxEmpleadoId" HorizontalAlignment="Left" Margin="135,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42"/>
+        <TextBox x:Name="TextBoxEmpleadoId" HorizontalAlignment="Left" Margin="135,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42" Text="{Binding EmpleadoId}"/>
         <Label Content="Fecha" HorizontalAlignment="Left" Margin="57,95,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="FechaDatePicker" HorizontalAlignment="Left" Margin="135,97,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="FechaDatePicker" HorizontalAlignment="Left" Margin="135,97,0,0" VerticalAlignment="Top" SelectedDate="{Binding Fecha}"/>
         <Label Content="Nombre" HorizontalAlignment="Left" Margin="57,131,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxNombre" HorizontalAlignment="Left" Margin="135,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313"/>
+        <TextBox x:Name="TextBoxNombre" HorizontalAlignment="Left" Margin="135,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Nombre}"/>
         <Label Content="Direccion" HorizontalAlignment="Left" Margin="57,158,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxDireccion" HorizontalAlignment="Left" Margin="135,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313"/>
+        <TextBox x:Name="TextBoxDireccion" HorizontalAlignment="Left" Margin="135,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Direccion}"/>
         <Label Content="Cedula" HorizontalAlignment="Left" Margin="61,186,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxCedula" HorizontalAlignment="Left" Margin="135,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313"/>
+        <TextBox x:Name="TextBoxCedula" HorizontalAlignment="Left" Margin="135,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Cedula}"/>
         <Label Content="Telefono" HorizontalAlignment="Left" Margin="61,213,0,0" VerticalAlignment="Top"/>
         <Label Content="Encargado" HorizontalAlignment="Left" Margin="61,239,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxTelefono" HorizontalAlignment="Left" Margin="135,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313"/>
-        <TextBox x:Name="TextBoxEncargado" HorizontalAlignment="Left" Margin="135,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313"/>
+        <TextBox x:Name="TextBoxTelefono" HorizontalAlignment="Left" Margin="135,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Telefono}"/>
+        <TextBox x:Name="TextBoxEncargado" HorizontalAlignment="Left" Margin="135,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Encargado}"/>
         <Button Content="Nuevo" HorizontalAlignment="Left" Margin="146,310,0,0" VerticalAlignment="Top" Height="36" Width="93" Click="BtnNuevo"/>
         <Button Content="Guardar" HorizontalAlignment="Left" Margin="249,310,0,0" VerticalAlignment="Top" Height="36" Width="93" Click="BtnGuardar"/>
         <Button Content="Eliminar" HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Height="36" Width="92" Click="BtnEliminar"/>
