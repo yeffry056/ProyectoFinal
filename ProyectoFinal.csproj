@@ -19,6 +19,7 @@
     <None Remove="Resources\nuevo.png" />
     <None Remove="Resources\registro %281%29.png" />
     <None Remove="Resources\settingstoolswheel-115840_115789.ico" />
+    <None Remove="UI\Registros\lupa %281%29.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,6 +69,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="UI\Registros\lupa (1).png" />
   </ItemGroup>
 
   <ItemGroup>

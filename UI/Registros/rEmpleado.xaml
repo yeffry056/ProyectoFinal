@@ -5,27 +5,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Registros"
         mc:Ignorable="d"
-        Title="Empleado" Height="450" Width="800">
+        Title="Empleado" Height="450" Width="558">
     <Grid>
-        <Label Content="EmpleadoId" HorizontalAlignment="Left" Margin="57,64,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxEmpleadoId" HorizontalAlignment="Left" Margin="135,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42" Text="{Binding EmpleadoId}"/>
-        <Label Content="Fecha" HorizontalAlignment="Left" Margin="57,95,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="FechaDatePicker" HorizontalAlignment="Left" Margin="135,97,0,0" VerticalAlignment="Top" SelectedDate="{Binding Fecha}"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="57,131,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxNombre" HorizontalAlignment="Left" Margin="135,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Nombre}"/>
-        <Label Content="Direccion" HorizontalAlignment="Left" Margin="57,158,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxDireccion" HorizontalAlignment="Left" Margin="135,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Direccion}"/>
-        <Label Content="Cedula" HorizontalAlignment="Left" Margin="61,186,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxCedula" HorizontalAlignment="Left" Margin="135,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Cedula}"/>
-        <Label Content="Telefono" HorizontalAlignment="Left" Margin="61,213,0,0" VerticalAlignment="Top"/>
-        <Label Content="Encargado" HorizontalAlignment="Left" Margin="61,239,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextBoxTelefono" HorizontalAlignment="Left" Margin="135,217,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Telefono}"/>
-        <TextBox x:Name="TextBoxEncargado" HorizontalAlignment="Left" Margin="135,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="313" Text="{Binding Encargado}"/>
-        <Button Content="Nuevo" HorizontalAlignment="Left" Margin="146,310,0,0" VerticalAlignment="Top" Height="36" Width="93" Click="BtnNuevo"/>
-        <Button Content="Guardar" HorizontalAlignment="Left" Margin="249,310,0,0" VerticalAlignment="Top" Height="36" Width="93" Click="BtnGuardar"/>
-        <Button Content="Eliminar" HorizontalAlignment="Center" Margin="0,310,0,0" VerticalAlignment="Top" Height="36" Width="92" Click="BtnEliminar"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="182,68,0,0" VerticalAlignment="Top" Click="BtnBuscar"/>
+        <Label Content="EmpleadoId" HorizontalAlignment="Left" Margin="41,32,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxEmpleadoId" HorizontalAlignment="Left" Margin="119,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="42" Text="{Binding EmpleadoId}"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="41,63,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="FechaDatePicker" HorizontalAlignment="Left" Margin="119,65,0,0" VerticalAlignment="Top" SelectedDate="{Binding Fecha}"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="41,99,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxNombre" HorizontalAlignment="Left" Margin="119,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Text="{Binding Nombre}"/>
+        <Label Content="Direccion" HorizontalAlignment="Left" Margin="41,126,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxDireccion" HorizontalAlignment="Left" Margin="119,130,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Text="{Binding Direccion}"/>
+        <Label Content="Cedula" HorizontalAlignment="Left" Margin="41,155,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxCedula" HorizontalAlignment="Left" Margin="119,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Text="{Binding Cedula}"/>
+        <Label Content="Telefono" HorizontalAlignment="Left" Margin="41,181,0,0" VerticalAlignment="Top"/>
+        <Label Content="Encargado" HorizontalAlignment="Left" Margin="41,207,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxTelefono" HorizontalAlignment="Left" Margin="119,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Text="{Binding Telefono}"/>
+        <TextBox x:Name="TextBoxEncargado" HorizontalAlignment="Left" Margin="119,211,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="439" Text="{Binding Encargado}"/>
+        <Button HorizontalAlignment="Left" Margin="161,243,0,0" VerticalAlignment="Top" Height="47" Width="93" Click="BtnNuevo">
+            <StackPanel Orientation="Vertical">
+                <Image Source="/Resources/nuevo.png" Height="31" Width="37" Margin="0,-1,0,0"/>
+                <Label Content="Nuevo" Margin="0,-9,0,0" Height="28"/>
+            </StackPanel>
+        </Button>
 
+        <Button  HorizontalAlignment="Left" Margin="264,243,0,0" VerticalAlignment="Top" Height="47" Width="93" Click="BtnGuardar">
+            <StackPanel Orientation="Vertical" >
+                <Image Source="/Resources/Guardar.png" Width="24" Height="31" Margin="0,-2,0,0"/>
+                <Label Content="Guardar" Margin="0,-7,0,0" Height="28"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="369,243,0,0" VerticalAlignment="Top" Height="47" Width="92" Click="BtnEliminar">
+            <StackPanel Orientation="Vertical">
+                <Image Source="/Resources/Eliminar.png" Height="29" Width="60"/>
+                <Label Content="Eliminar" Margin="0,-7,0,0"/>
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="166,34,0,0" VerticalAlignment="Top" Click="BtnBuscar" Height="22" Width="34">
+            <StackPanel Orientation="Vertical" Height="18" Width="35">
+                <Image Source="/UI/Registros/lupa (1).png" Height="16" Width="22" Margin="-5,1,0,0"/>
+            </StackPanel>
+        </Button>
 
 
     </Grid>
