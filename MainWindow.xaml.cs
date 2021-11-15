@@ -55,5 +55,11 @@ namespace ProyectoFinal
             rEmpleado empleado = new rEmpleado();
             empleado.Show();
         }
+
+        private void ConsultaEmpleado(object sender, RoutedEventArgs e)
+        {
+            cEmpleado cEmpleado = new cEmpleado();
+            cEmpleado.Show();
+        }
     }
 }

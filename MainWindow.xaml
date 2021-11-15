@@ -20,6 +20,7 @@
                     <MenuItem Header="Consultas">
                         <MenuItem Header="Consulta de Clientes " Click="cClientesClick" />
                         <MenuItem Header="Consulta de Usuarios " Click="ConsultaUsuario"/>
+                        <MenuItem Header="Consulta de Empleados" Click="ConsultaEmpleado" />
                     </MenuItem>
                 </Menu>
               
