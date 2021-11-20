@@ -1,0 +1,47 @@
+﻿<Window x:Class="ProyectoFinal.UI.Registros.rCompra"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoFinal.UI.Registros"
+        mc:Ignorable="d"
+        Title="Registro de Compras" Height="310" Width="552">
+    <Grid>
+        <Label Content="CompraId" HorizontalAlignment="Left" Margin="67,37,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="67,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="ProveedorId" HorizontalAlignment="Left" Margin="67,104,0,0" VerticalAlignment="Top"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="67,134,0,0" VerticalAlignment="Top"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="67,165,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxCompraId" Text="{Binding CompraId}" HorizontalAlignment="Left" Margin="142,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="28"/>
+        <TextBox x:Name="TextBoxProveedorId" Text="{Binding Proveedor}" HorizontalAlignment="Left" Margin="142,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358"/>
+        <TextBox x:Name="TextBoxTotal" Text="{Binding Total}" HorizontalAlignment="Left" Margin="142,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358"/>
+        <TextBox x:Name="TextBoxUsuario" Text="{Binding Usuario}" HorizontalAlignment="Left" Margin="142,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="358"/>
+        <DatePicker x:Name="FechaIngresoDatePicker" HorizontalAlignment="Left" Margin="142,76,0,0" VerticalAlignment="Top"/>
+        <Button HorizontalAlignment="Left" Margin="175,41,0,0" VerticalAlignment="Top" Click="BtnBuscar">
+            <StackPanel>
+                <Image Height="14" Width="19" Source="/Resources/lupa (1).png"/>
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="142,230,0,0" VerticalAlignment="Top" Height="34" Width="56" Click="BtnNuevo">
+            <StackPanel Orientation="Vertical">
+                <Image Source="/Resources/nuevo.png" Height="21" Width="42"/>
+                <Label Content="Nuevo" Margin="0,-10.5,0,0" />
+            </StackPanel>
+        </Button>
+
+        <Button HorizontalAlignment="Left" Margin="223,230,0,0" VerticalAlignment="Top" Width="56" Height="34" Click="BtnGuardar">
+            <StackPanel Orientation="Vertical">
+                <Image Source="/Resources/Guardar.png" Height="21" Width="30"/>
+                <Label Content="Guardar" Margin="0,-10,0,0"/>
+            </StackPanel>
+        </Button>
+        <Button HorizontalAlignment="Left" Margin="300,230,0,0" VerticalAlignment="Top" Width="56" Height="34" Click="BtnEliminar">
+            <StackPanel>
+                <Image Source="/Resources/Eliminar.png" Height="23" Width="40" Margin="0,-1,0,0"/>
+                <Label Content="Eliminar" Margin="0,-11,0,0" />
+            </StackPanel>
+        </Button>
+
+    </Grid>
+</Window>

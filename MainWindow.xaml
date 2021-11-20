@@ -10,10 +10,13 @@
         <StackPanel>
             <StackPanel Orientation="Horizontal">
                 <Menu Height="23" Width="62" VerticalAlignment="Top">
-                    <MenuItem Header="Registros" Click="EmpleadosClick">
+                    <MenuItem Header="Registros">
                         <MenuItem Header="Registro Clientes" Click="rClientesClik" />
                         <MenuItem Header="Registro Usuarios " Click="RegistrosClik"/>
                         <MenuItem Header="Registro Empleados" Click="EmpleadosClick" />
+                        <MenuItem Header="Registro Vehiculo" Click="VehiculosClick" />
+                        <MenuItem Header="Registro Compras" Click="ComprasClick"/>
+                        <MenuItem Header="Registro Roles" Click="RolesClic"/>
                     </MenuItem>
                 </Menu>
                 <Menu Height="23" Width="737" VerticalAlignment="Top">
@@ -21,6 +24,9 @@
                         <MenuItem Header="Consulta de Clientes " Click="cClientesClick" />
                         <MenuItem Header="Consulta de Usuarios " Click="ConsultaUsuario"/>
                         <MenuItem Header="Consulta de Empleados" Click="ConsultaEmpleado" />
+                        <MenuItem Header="Consulta de Vehiculos" Click="ConsultaVehiculo" />
+                        <MenuItem Header="Consulta de Compras" Click="ConsultaCompra"/>
+                        <MenuItem Header="Consulta de Roles" Click="ConsultaRol"/>
                     </MenuItem>
                 </Menu>
               

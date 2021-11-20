@@ -68,7 +68,7 @@ namespace ProyectoFinal.UI.Registros
             this.usuario = new Usuarios();
             this.DataContext = usuario;
             FechaIngresoDatePicker.SelectedDate = DateTime.Now;
-            TextClave.Password = string.Empty;
+            //TextClave.Password = string.Empty;
             //CheckActivo.IsChecked = false;
         }
         private bool Validar()
@@ -165,10 +165,5 @@ namespace ProyectoFinal.UI.Registros
             else
                 MessageBox.Show("No fue posible eliminar el registro", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
         }
-
-        /*private void Activo(object sender, RoutedEventArgs e)
-        {
-            usuario.Activo = CheckActivo.Content.ToString();
-        }*/
     }
 }

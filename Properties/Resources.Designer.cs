@@ -143,6 +143,16 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] lupa__1_ {
+            get {
+                object obj = ResourceManager.GetObject("lupa__1_", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] nuevo {
             get {
                 object obj = ResourceManager.GetObject("nuevo", resourceCulture);

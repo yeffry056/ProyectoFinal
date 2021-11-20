@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.UI.Consultas;
+﻿using ProyectoFinal.Entidades;
+using ProyectoFinal.UI.Consultas;
 using ProyectoFinal.UI.Registros;
 using System;
 using System.Collections.Generic;
@@ -60,6 +61,42 @@ namespace ProyectoFinal
         {
             cEmpleado cEmpleado = new cEmpleado();
             cEmpleado.Show();
+        }
+
+        private void VehiculosClick(object sender, RoutedEventArgs e)
+        {
+            rVehiculo vehiculo = new rVehiculo();
+            vehiculo.Show();
+        }
+
+        private void ConsultaVehiculo(object sender, RoutedEventArgs e)
+        {
+            cVehiculo cVehiculo = new cVehiculo();
+            cVehiculo.Show();
+        }
+
+        private void ComprasClick(object sender, RoutedEventArgs e)
+        {
+            rCompra rCompra = new rCompra();
+            rCompra.Show();
+        }
+
+        private void ConsultaCompra(object sender, RoutedEventArgs e)
+        {
+            cCompra cCompra = new cCompra();
+            cCompra.Show();
+        }
+
+        private void RolesClic(object sender, RoutedEventArgs e)
+        {
+            rRol rRol = new rRol();
+            rRol.Show();
+        }
+
+        private void ConsultaRol(object sender, RoutedEventArgs e)
+        {
+            cRol cRol = new cRol();
+            cRol.Show();
         }
     }
 }
