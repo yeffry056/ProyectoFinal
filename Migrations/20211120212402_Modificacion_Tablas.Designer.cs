@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoFinal.DAL;
 
 namespace ProyectoFinal.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20211120212402_Modificacion_Tablas")]
+    partial class Modificacion_Tablas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -53,6 +55,9 @@ namespace ProyectoFinal.Migrations
 
                     b.Property<float>("Costo")
                         .HasColumnType("REAL");
+
+                    b.Property<int>("DetalleId")
+                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
@@ -157,7 +162,7 @@ namespace ProyectoFinal.Migrations
                         {
                             UsuarioId = 1,
                             Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-                            Fecha = new DateTime(2021, 11, 22, 16, 20, 40, 26, DateTimeKind.Local).AddTicks(8653),
+                            Fecha = new DateTime(2021, 11, 20, 17, 24, 1, 755, DateTimeKind.Local).AddTicks(2221),
                             Nombre = "Jefferson",
                             NombreUsuario = "user01"
                         });

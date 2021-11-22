@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProyectoFinal.DAL;
 
 namespace ProyectoFinal.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20211116053651_Agregando_TablaVehiculo")]
+    partial class Agregando_TablaVehiculo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,51 +39,6 @@ namespace ProyectoFinal.Migrations
                     b.HasKey("ClienteId");
 
                     b.ToTable("Clientes");
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Entidades.CompraDetalle", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Articulo")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("CompraId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("Costo")
-                        .HasColumnType("REAL");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompraId");
-
-                    b.ToTable("CompraDetalle");
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Entidades.Compras", b =>
-                {
-                    b.Property<int>("CompraId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("ProveedorId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<float>("Total")
-                        .HasColumnType("REAL");
-
-                    b.Property<int>("Usuario")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("CompraId");
-
-                    b.ToTable("Compras");
                 });
 
             modelBuilder.Entity("ProyectoFinal.Entidades.Empleados", b =>
@@ -113,23 +70,6 @@ namespace ProyectoFinal.Migrations
                     b.ToTable("Empleados");
                 });
 
-            modelBuilder.Entity("ProyectoFinal.Entidades.Roles", b =>
-                {
-                    b.Property<int>("RolId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("Descripcion")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("RolId");
-
-                    b.ToTable("Roles");
-                });
-
             modelBuilder.Entity("ProyectoFinal.Entidades.Usuarios", b =>
                 {
                     b.Property<int>("UsuarioId")
@@ -157,7 +97,7 @@ namespace ProyectoFinal.Migrations
                         {
                             UsuarioId = 1,
                             Clave = "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
-                            Fecha = new DateTime(2021, 11, 22, 16, 20, 40, 26, DateTimeKind.Local).AddTicks(8653),
+                            Fecha = new DateTime(2021, 11, 16, 1, 36, 51, 452, DateTimeKind.Local).AddTicks(8450),
                             Nombre = "Jefferson",
                             NombreUsuario = "user01"
                         });
@@ -190,20 +130,6 @@ namespace ProyectoFinal.Migrations
                     b.HasKey("VehiculoId");
 
                     b.ToTable("Vehiculos");
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Entidades.CompraDetalle", b =>
-                {
-                    b.HasOne("ProyectoFinal.Entidades.Compras", null)
-                        .WithMany("CompraDetalles")
-                        .HasForeignKey("CompraId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProyectoFinal.Entidades.Compras", b =>
-                {
-                    b.Navigation("CompraDetalles");
                 });
 #pragma warning restore 612, 618
         }

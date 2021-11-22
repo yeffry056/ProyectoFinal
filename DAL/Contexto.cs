@@ -13,6 +13,9 @@ namespace ProyectoFinal.DAL
         public DbSet<Clientes> Clientes { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Empleados> Empleados { get; set; }
+        public DbSet<Vehiculos> Vehiculos { get; set; }
+        public DbSet<Compras> Compras { get; set; }
+        public DbSet<Roles> Roles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
