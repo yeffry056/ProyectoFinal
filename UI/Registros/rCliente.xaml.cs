@@ -17,7 +17,7 @@ using System.Windows.Shapes;
 namespace ProyectoFinal.UI.Registros
 {
     /// <summary>
-    /// Interaction logic for rCliente.xaml
+    /// Interaction logic for rCliente.xamlx
     /// </summary>
     public partial class rCliente : Window
     {
