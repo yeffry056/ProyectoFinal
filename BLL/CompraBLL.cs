@@ -19,7 +19,7 @@ namespace ProyectoFinal.BLL
             else
                 return Modificar(compra);
         }
-
+        
         private static bool Insertar(Compras compra)
         {
             bool paso = false;
@@ -48,6 +48,7 @@ namespace ProyectoFinal.BLL
 
             try
             {
+                contexto.Database.ExecuteSqlRaw($"Delete FROM CompraDetalle Where CompraId={compra.CompraId}");
                 contexto.Entry(compra).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -97,7 +98,11 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                compra = contexto.Compras.Find(id);
+                //compra = contexto.Compras.Find(id);
+                compra = contexto.Compras.Include(x => x.CompraDetalles)
+                    .Where(p => p.CompraId == id)
+                    .SingleOrDefault();
+
             }
             catch (Exception)
             {

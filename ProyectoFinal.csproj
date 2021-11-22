@@ -17,9 +17,12 @@
     <None Remove="Resources\icono.icon.png" />
     <None Remove="Resources\login.png" />
     <None Remove="Resources\lupa %281%29.png" />
+    <None Remove="Resources\mas.png" />
+    <None Remove="Resources\menos.png" />
     <None Remove="Resources\nuevo.png" />
     <None Remove="Resources\registro %281%29.png" />
     <None Remove="Resources\settingstoolswheel-115840_115789.ico" />
+    <None Remove="Resources\signo-de-mas.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -50,6 +53,12 @@
     <Content Include="Resources\lupa (1).png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\mas.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\menos.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\nuevo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -57,6 +66,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\settingstoolswheel-115840_115789.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\signo-de-mas.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

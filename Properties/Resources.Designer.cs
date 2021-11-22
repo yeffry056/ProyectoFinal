@@ -63,26 +63,6 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] BtnAgregar {
-            get {
-                object obj = ResourceManager.GetObject("BtnAgregar", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] BtnRemover {
-            get {
-                object obj = ResourceManager.GetObject("BtnRemover", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] buscar {
             get {
                 object obj = ResourceManager.GetObject("buscar", resourceCulture);
@@ -153,6 +133,26 @@ namespace ProyectoFinal.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] mas {
+            get {
+                object obj = ResourceManager.GetObject("mas", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] menos {
+            get {
+                object obj = ResourceManager.GetObject("menos", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] nuevo {
             get {
                 object obj = ResourceManager.GetObject("nuevo", resourceCulture);
@@ -176,6 +176,16 @@ namespace ProyectoFinal.Properties {
         internal static byte[] settingstoolswheel_115840_115789 {
             get {
                 object obj = ResourceManager.GetObject("settingstoolswheel_115840_115789", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] signo_de_mas {
+            get {
+                object obj = ResourceManager.GetObject("signo_de_mas", resourceCulture);
                 return ((byte[])(obj));
             }
         }

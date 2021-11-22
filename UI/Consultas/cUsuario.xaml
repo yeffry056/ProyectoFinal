@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consulta de Usuario" Height="448" Width="639">
+        Title="Consulta de Usuarios" Height="448" Width="639">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 

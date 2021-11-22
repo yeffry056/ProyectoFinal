@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Registros"
         mc:Ignorable="d"
-        Title="rRol" Height="240" Width="470">
+        Title="Registro de Roles" Height="240" Width="470">
     <Grid>
         <Label Content="Rol ID:" HorizontalAlignment="Left" Margin="137,15,0,0" VerticalAlignment="Top"/>
         <Label Content="Fecha de creacion:" HorizontalAlignment="Left" Margin="134,46,0,0" VerticalAlignment="Top"/>
