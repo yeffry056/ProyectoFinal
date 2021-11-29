@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,5 +18,9 @@ namespace ProyectoFinal.Entidades
         public string Cedula { get; set; }
         public string Telefono { get; set; }
         public string Encargado { get; set; }
+        public int UsuarioId { get; set; }
+
+        [ForeignKey("UsuarioId")]
+        public Usuarios Usuario { get; set; }
     }
 }

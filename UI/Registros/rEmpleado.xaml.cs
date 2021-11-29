@@ -22,10 +22,15 @@ namespace ProyectoFinal.UI.Registros
     public partial class rEmpleado : Window
     {
         private Empleados empleado = new Empleados();
-        public rEmpleado()
+        public rEmpleado(List<Usuarios> usuarioInicio)
         {
             InitializeComponent();
             this.DataContext = empleado;
+
+
+            UsuarioComboBox.ItemsSource = usuarioInicio.ToArray();
+            UsuarioComboBox.SelectedValuePath = "UsuarioId";
+            UsuarioComboBox.DisplayMemberPath = "Nombre";
         }
 
         private void BtnNuevo(object sender, RoutedEventArgs e)
@@ -142,6 +147,12 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return esValido;
+            }
+            if (UsuarioComboBox.SelectedValue == null)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione el usuario", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return esValido;
             }
 

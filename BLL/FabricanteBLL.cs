@@ -10,23 +10,24 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal.BLL
 {
-    public class RolBLL
+    public class FabricanteBLL
     {
-        public static bool Guardar(Roles Rol)
+        public static bool Guardar(Fabricantes fabricante)
         {
-            if (!Existe(Rol.RolId))//si no existe insertamos
-                return Insertar(Rol);
+            if (!Existe(fabricante.FabricanteId))//si no existe insertamos
+                return Insertar(fabricante);
             else
-                return Modificar(Rol);
+                return Modificar(fabricante);
         }
-        private static bool Insertar(Roles Rol)
+        private static bool Insertar(Fabricantes fabricante)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                if (contexto.Roles.Add(Rol) != null)
+                
+                if (contexto.Fabricantes.Add(fabricante) != null)
                     paso = contexto.SaveChanges() > 0;
 
             }
@@ -40,14 +41,15 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
-        private static bool Modificar(Roles Rol)
+        private static bool Modificar(Fabricantes fabricante)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(Rol).State = EntityState.Modified;
+               
+                contexto.Entry(fabricante).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -68,11 +70,13 @@ namespace ProyectoFinal.BLL
             try
             {
                 //buscar la entidad que se desea eliminar
-                var Rol = contexto.Roles.Find(id);
+                var fabricante = contexto.Fabricantes.Find(id);
 
-                if (Rol != null)
+                if (fabricante != null)
                 {
-                    contexto.Roles.Remove(Rol); //remover la entidad
+                  
+
+                    contexto.Fabricantes.Remove(fabricante); //remover la entidad
                     paso = contexto.SaveChanges() > 0;
                 }
 
@@ -87,14 +91,15 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
-        public static Roles Buscar(int id)
+        public static Fabricantes Buscar(int id)
         {
-            Roles Rol;
+            Fabricantes fabricante;
             Contexto contexto = new Contexto();
 
             try
             {
-                Rol = contexto.Roles.Find(id);
+                fabricante = contexto.Fabricantes.Find(id);
+                
             }
             catch (Exception)
             {
@@ -104,17 +109,17 @@ namespace ProyectoFinal.BLL
             {
                 contexto.Dispose();
             }
-            return Rol;
+            return fabricante;
         }
-        public static List<Roles> GetList(Expression<Func<Roles, bool>> criterio)
+        public static List<Fabricantes> GetFabricantes()
         {
-            List<Roles> Lista = new List<Roles>();
+            List<Fabricantes> Lista = new List<Fabricantes>();
             Contexto contexto = new Contexto();
 
             try
             {
                 //obtener la lista y filtrarla según el criterio recibido por parametro.
-                Lista = contexto.Roles.Where(criterio).ToList();
+                Lista = contexto.Fabricantes.ToList();
             }
             catch (Exception)
             {
@@ -126,15 +131,35 @@ namespace ProyectoFinal.BLL
             }
             return Lista;
         }
-        public static List<Roles> GetListado()
+        public static List<Fabricantes> GetListido()
         {
-            List<Roles> Lista = new List<Roles>();
+            List<Fabricantes> Lista = new List<Fabricantes>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                
+                Lista = contexto.Fabricantes.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Lista;
+        }
+        public static List<Fabricantes> GetList(Expression<Func<Fabricantes, bool>> criterio)
+        {
+            List<Fabricantes> Lista = new List<Fabricantes>();
             Contexto contexto = new Contexto();
 
             try
             {
                 //obtener la lista y filtrarla según el criterio recibido por parametro.
-                Lista = contexto.Roles.ToList();
+                Lista = contexto.Fabricantes.Where(criterio).ToList();
             }
             catch (Exception)
             {
@@ -153,7 +178,7 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                encontrado = contexto.Roles.Any(e => e.RolId == id);
+                encontrado = contexto.Fabricantes.Any(e => e.FabricanteId == id);
             }
             catch (Exception)
             {

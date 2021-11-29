@@ -1,21 +1,18 @@
-﻿<Window x:Class="ProyectoFinal.UI.Registros.rUsuario"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Registros"
         xmlns:PasswordHelper="clr-namespace:ProyectoFinal.Resources.PasswordHelper"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="ProyectoFinal.UI.Registros.rUsuario"
         mc:Ignorable="d"
         Title="Registro de Usuarios" Height="302" Width="367" Icon="/Resources/registro (1).png">
     <Grid>
-        <Label Content="UsuarioId" HorizontalAlignment="Left" Margin="10,23,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextUsuarioId" HorizontalAlignment="Left" Margin="69,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="86" Text="{Binding UsuarioId}"/>
-        <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextUsuarioId" HorizontalAlignment="Left" Margin="69,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Text="{Binding UsuarioId}"/>
         <TextBox x:Name="TextUsuario"  HorizontalAlignment="Left" Margin="69,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Text="{Binding NombreUsuario}"/>
-        <Label Content="Clave " HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
-        <Label Content="Nombre" HorizontalAlignment="Left" Margin="10,76,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextNombre"  HorizontalAlignment="Left" Margin="69,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"  Text="{Binding Nombre}"/>
-        <Button HorizontalAlignment="Left" Margin="162,26,0,0" VerticalAlignment="Top" Width="26" Click="BtnBuscar" >
+        <Button HorizontalAlignment="Left" Margin="142,26,0,0" VerticalAlignment="Top" Width="26" Click="BtnBuscar" >
             <Image Height="16" Width="21" Source="/Resources/buscar.png" />
 
         </Button>
@@ -40,9 +37,23 @@
                 <Label Content="Eliminar" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,-7,0,0" />
             </StackPanel>
         </Button>
-        <PasswordBox x:Name="TextClave" HorizontalAlignment="Left" Margin="69,133,0,0" VerticalAlignment="Top" Width="192" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Clave,Mode=OneWayToSource,UpdateSourceTrigger=PropertyChanged}"/>
-        <DatePicker x:Name="FechaIngresoDatePicker" HorizontalAlignment="Left" Margin="69,51,0,0" VerticalAlignment="Top" SelectedDate="{Binding Fecha}" Width="119"/>
-        <Label Content="Fecha" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="TextClave" HorizontalAlignment="Left" Margin="69,133,0,0" VerticalAlignment="Top" Width="192" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Clave, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
+        <DatePicker x:Name="FechaIngresoDatePicker" HorizontalAlignment="Left" Margin="69,51,0,0" VerticalAlignment="Top" SelectedDate="{Binding Fecha}" Width="101"/>
+        <materialDesign:Card Content="UsuarioId" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Card Content="Fecha" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Card Content="Nombre" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Card Content="Usuario" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Card Content="Clave" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
+        <materialDesign:Flipper HorizontalAlignment="Left" Margin="277,52,0,0" VerticalAlignment="Top"/>
+        <materialDesign:DialogHost Content="DialogHost" HorizontalAlignment="Left" Margin="262,12,0,0" VerticalAlignment="Top"/>
+        <materialDesign:ColorZone HorizontalAlignment="Left" Margin="72,82,0,0"/>
+        <Label Content="Rol" HorizontalAlignment="Left" Margin="174,48,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="RolesComboBox" SelectedValue="{Binding RolId}" HorizontalAlignment="Left" Margin="201,51,0,0" VerticalAlignment="Top" Width="120"/>
+
+
+
+
 
     </Grid>
+
 </Window>

@@ -129,6 +129,26 @@ namespace ProyectoFinal.BLL
             }
             return Lista;
         }//Listo
+        public static List<Empleados> GetListado()
+        {
+            List<Empleados> Lista = new List<Empleados>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                //obtener la lista y filtrarla según el criterio recibido por parametro.
+                Lista = contexto.Empleados.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Lista;
+        }
 
         public static bool Existe(int id)
         {

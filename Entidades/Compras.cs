@@ -15,7 +15,10 @@ namespace ProyectoFinal.Entidades
         public DateTime Fecha { get; set; } = DateTime.Now;
         public int ProveedorId { get; set; }
         public float Total { get; set; }
-        public int Usuario { get; set; }
+        public int UsuarioId { get; set; }
+
+        [ForeignKey("UsuarioId")]
+        public Usuarios Usuario { get; set; }
 
         [ForeignKey("CompraId")]
         public virtual List<CompraDetalle> CompraDetalles { get; set; } = new List<CompraDetalle>();

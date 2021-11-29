@@ -24,12 +24,16 @@ namespace ProyectoFinal.UI.Registros
     {
         private Compras Compra = new Compras();
         //private CompraDetalle c = new CompraDetalle();
-        public rCompra()
+        public rCompra(List<Usuarios> usuarioInicio)
         {
             InitializeComponent();
             this.DataContext = Compra;
-            //
+            
             TextBoxCompraId.Text = "0";
+
+            UsuarioComboBox.ItemsSource = usuarioInicio.ToArray();
+            UsuarioComboBox.SelectedValuePath = "UsuarioId";
+            UsuarioComboBox.DisplayMemberPath = "Nombre";
         }
 
         private void Limpiar()
@@ -48,7 +52,12 @@ namespace ProyectoFinal.UI.Registros
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return esValido;
             }
-
+            if (UsuarioComboBox.SelectedValue == null)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione el usuario", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return esValido;
+            }
             return esValido;
         }
 
@@ -145,12 +154,10 @@ namespace ProyectoFinal.UI.Registros
             else
             {
                 Compra.CompraDetalles.Add(new CompraDetalle( Compra.CompraId, texBoxArticulo.Text, Convert.ToSingle(TextBoxCosto.Text)));
-                //Tarea.Detalle.Add(new TareasDetalle(Tarea.TareaId, RequerimientoTextBox.Text, Convert.ToSingle(ValorTextBox.Text)));
+                
                 Cargar();
-
-                //TextBoxDetalleId.Focus();
-                //TextBoxDetalleId.Clear();
-                //TextBoxDetalleId.Focus();
+                TextBoxTotal.Text += Compra.CompraDetalles.Sum(x => x.Costo).ToString();
+                
                 texBoxArticulo.Focus();
                 TextBoxCosto.Clear();
                 texBoxArticulo.Clear();

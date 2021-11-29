@@ -17,107 +17,84 @@ using System.Windows.Shapes;
 namespace ProyectoFinal.UI.Registros
 {
     /// <summary>
-    /// Interaction logic for rCliente.xaml
+    /// Interaction logic for rArticulos.xaml
     /// </summary>
-    public partial class rCliente : Window
+    public partial class rArticulos : Window
     {
-        private Clientes cliente = new Clientes();
-        public rCliente(List<Usuarios> usuarioInicio)
+        private Articulos articulo = new Articulos();
+        public rArticulos(List<Usuarios> usuarioInicio)
         {
             InitializeComponent();
-            this.DataContext = cliente;
+            this.DataContext = articulo;
 
-
+            FabricanteComboBox.ItemsSource = FabricanteBLL.GetListido();
+            FabricanteComboBox.SelectedValuePath = "FabricanteId";
+            FabricanteComboBox.DisplayMemberPath = "Nombres";
 
             UsuarioComboBox.ItemsSource = usuarioInicio.ToArray();
             UsuarioComboBox.SelectedValuePath = "UsuarioId";
             UsuarioComboBox.DisplayMemberPath = "Nombre";
         }
-        private void BtnBuscar(object sender, RoutedEventArgs e)
+        private void Cargar()
         {
-            if (TextClienteId.Text.Length == 0)
-            {
+            this.DataContext = null;
+            this.DataContext = articulo;
 
-                MessageBox.Show("ID vacio", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-            else if (!UsuarioBLL.Existe(Convert.ToInt32(TextClienteId.Text)))
-            {
-                Limpiar();
-                MessageBox.Show("El registro no existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }
-
-            var cliente = ClienteBLL.Buscar(Convert.ToInt32(TextClienteId.Text));
-            if (cliente != null)
-            {
-                Limpiar();
-                this.cliente = cliente;
-
-            }
-            else
-                Limpiar();
-
-           
-
-            this.DataContext = this.cliente;
-        }
-
-        private void BtnNuevo(object sender, RoutedEventArgs e)
-        {
-            Limpiar();
         }
         private void Limpiar()
         {
-            this.cliente = new Clientes();
-            this.DataContext = cliente;
-            FechaIngresoDatePicker.SelectedDate = DateTime.Now;
-            
+            this.articulo = new Articulos();
+            this.DataContext = articulo;
         }
         private bool Validar()
         {
             bool esValido = true;
-            if (TextClienteId.Text.Length == 0)
+            if (TextArticuloId.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                TextClienteId.Focus();
                 return esValido;
+
             }
-            if (TextDireccion.Text.Length == 0)
+            if (TextDescripcion.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                TextDireccion.Focus();
                 return esValido;
+
             }
-            if (TextNombre.Text.Length == 0)
+            if (TextEstado.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                TextNombre.Focus();
                 return esValido;
+
             }
-           
-            if (TextTelefono.Text.Length == 0)
+            if (TextCosto.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                TextTelefono.Focus();
                 return esValido;
+
             }
-            if (TextCelular.Text.Length == 0)
+            if (TextPrecio.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                TextCelular.Focus();
                 return esValido;
+
             }
-            if (TextCedula.Text.Length == 0)
+            if (TextInventario.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                TextCedula.Focus();
+                return esValido;
+
+            }
+            if(FabricanteComboBox.SelectedValue == null)
+            {
+                esValido = false;
+                MessageBox.Show("Seleccione un fabricante", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return esValido;
             }
             if (UsuarioComboBox.SelectedValue == null)
@@ -126,53 +103,68 @@ namespace ProyectoFinal.UI.Registros
                 MessageBox.Show("Seleccione el usuario", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return esValido;
             }
-            if (!Utilidades.Validar_Email(TextEmail.Text))
-            {
-                esValido = false;
-                MessageBox.Show("Email no valido ", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                TextEmail.Focus();
-                return esValido;
-            }
 
             return esValido;
         }
+        private void BtnBuscar(object sender, RoutedEventArgs e)
+        {
+
+            var encontrado = ArticuloBLL.Buscar(articulo.ArticuloId);
+
+            if (encontrado != null)
+            {
+                articulo = encontrado;
+                Cargar();
+                
+            }
+            else
+            {
+                Limpiar();
+                MessageBox.Show("Venta no existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+       
+
+        private void BtnNuevo(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
+        }
+
         private void BtnGuardar(object sender, RoutedEventArgs e)
         {
             if (!Validar())
                 return;
-            
-
-            
-            var paso = ClienteBLL.Guardar(cliente);
+            var paso = ArticuloBLL.Guardar(articulo);
 
             if (paso)
             {
-
                 Limpiar();
-                MessageBox.Show("Transaccion Exitosa", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
-
+                MessageBox.Show("Guardado!", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
-                MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+
         }
 
         private void BtnEliminar(object sender, RoutedEventArgs e)
         {
-            if(TextClienteId.Text.Length == 0)
+            
+            if(TextArticuloId.Text.Length == 0)
             {
-                MessageBox.Show("ClienteId vacio", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Registro eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
                 return;
             }
-            
 
-            if (ClienteBLL.Eliminar(Convert.ToInt32(TextClienteId.Text)))
+            if (ArticuloBLL.Eliminar(Convert.ToInt32(TextArticuloId.Text)))
             {
                 Limpiar();
                 MessageBox.Show("Registro eliminado", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             else
                 MessageBox.Show("No fue posible eliminar el registro", "Fallo", MessageBoxButton.OK, MessageBoxImage.Error);
+
+           
         }
-    
     }
 }

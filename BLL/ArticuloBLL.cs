@@ -10,23 +10,24 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinal.BLL
 {
-    public class RolBLL
+    public class ArticuloBLL
     {
-        public static bool Guardar(Roles Rol)
+        public static bool Guardar(Articulos articulos)
         {
-            if (!Existe(Rol.RolId))//si no existe insertamos
-                return Insertar(Rol);
+            if (!Existe(articulos.ArticuloId))//si no existe insertamos
+                return Insertar(articulos);
             else
-                return Modificar(Rol);
+                return Modificar(articulos);
         }
-        private static bool Insertar(Roles Rol)
+        private static bool Insertar(Articulos articulos)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                if (contexto.Roles.Add(Rol) != null)
+               
+                if (contexto.Articulos.Add(articulos) != null)
                     paso = contexto.SaveChanges() > 0;
 
             }
@@ -40,14 +41,15 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
-        private static bool Modificar(Roles Rol)
+        private static bool Modificar(Articulos articulos)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(Rol).State = EntityState.Modified;
+               
+                contexto.Entry(articulos).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
             catch (Exception)
@@ -68,11 +70,12 @@ namespace ProyectoFinal.BLL
             try
             {
                 //buscar la entidad que se desea eliminar
-                var Rol = contexto.Roles.Find(id);
+                var articulos = contexto.Articulos.Find(id);
 
-                if (Rol != null)
+                if (articulos != null)
                 {
-                    contexto.Roles.Remove(Rol); //remover la entidad
+                   
+                    contexto.Articulos.Remove(articulos); //remover la entidad
                     paso = contexto.SaveChanges() > 0;
                 }
 
@@ -87,14 +90,15 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
-        public static Roles Buscar(int id)
+        public static Articulos Buscar(int id)
         {
-            Roles Rol;
+            Articulos articulos;
             Contexto contexto = new Contexto();
 
             try
             {
-                Rol = contexto.Roles.Find(id);
+                articulos = contexto.Articulos.Find(id);
+               
             }
             catch (Exception)
             {
@@ -104,17 +108,17 @@ namespace ProyectoFinal.BLL
             {
                 contexto.Dispose();
             }
-            return Rol;
+            return articulos;
         }
-        public static List<Roles> GetList(Expression<Func<Roles, bool>> criterio)
+        public static List<Articulos> GetList(Expression<Func<Articulos, bool>> criterio)
         {
-            List<Roles> Lista = new List<Roles>();
+            List<Articulos> Lista = new List<Articulos>();
             Contexto contexto = new Contexto();
 
             try
             {
                 //obtener la lista y filtrarla según el criterio recibido por parametro.
-                Lista = contexto.Roles.Where(criterio).ToList();
+                Lista = contexto.Articulos.Where(criterio).ToList();
             }
             catch (Exception)
             {
@@ -126,15 +130,15 @@ namespace ProyectoFinal.BLL
             }
             return Lista;
         }
-        public static List<Roles> GetListado()
+        public static List<Articulos> GetListado()
         {
-            List<Roles> Lista = new List<Roles>();
+            List<Articulos> Lista = new List<Articulos>();
             Contexto contexto = new Contexto();
 
             try
             {
                 //obtener la lista y filtrarla según el criterio recibido por parametro.
-                Lista = contexto.Roles.ToList();
+                Lista = contexto.Articulos.ToList();
             }
             catch (Exception)
             {
@@ -153,7 +157,7 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                encontrado = contexto.Roles.Any(e => e.RolId == id);
+                encontrado = contexto.Articulos.Any(e => e.ArticuloId == id);
             }
             catch (Exception)
             {

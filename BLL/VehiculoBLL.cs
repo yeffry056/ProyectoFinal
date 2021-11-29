@@ -124,6 +124,26 @@ namespace ProyectoFinal.BLL
             }
             return Lista;
         }
+        public static List<Vehiculos> GetListado()
+        {
+            List<Vehiculos> Lista = new List<Vehiculos>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                //obtener la lista y filtrarla según el criterio recibido por parametro.
+                Lista = contexto.Vehiculos.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Lista;
+        }
         public static bool Existe(int id)
         {
             Contexto contexto = new Contexto();

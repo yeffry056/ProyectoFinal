@@ -46,6 +46,8 @@
                 <Image Source="/Resources/lupa (1).png" Height="16" Width="22" Margin="-5,1,0,0"/>
             </StackPanel>
         </Button>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="289,62,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="UsuarioComboBox" SelectedValue="{Binding UsuarioId}" HorizontalAlignment="Left" Margin="343,65,0,0" VerticalAlignment="Top" Width="120"/>
 
 
     </Grid>

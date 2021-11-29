@@ -4,35 +4,43 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal"
-        mc:Ignorable="d"
-        Title="Talleres Nelson" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Menu Height="23" Width="62" VerticalAlignment="Top">
-                    <MenuItem Header="Registros">
-                        <MenuItem Header="Registro Clientes" Click="rClientesClik" />
-                        <MenuItem Header="Registro Usuarios " Click="RegistrosClik"/>
-                        <MenuItem Header="Registro Empleados" Click="EmpleadosClick" />
-                        <MenuItem Header="Registro Vehiculo" Click="VehiculosClick" />
-                        <MenuItem Header="Registro Compras" Click="ComprasClick"/>
-                        <MenuItem Header="Registro Roles" Click="RolesClic"/>
-                    </MenuItem>
-                </Menu>
-                <Menu Height="23" Width="737" VerticalAlignment="Top">
-                    <MenuItem Header="Consultas">
-                        <MenuItem Header="Consulta de Clientes " Click="cClientesClick" />
-                        <MenuItem Header="Consulta de Usuarios " Click="ConsultaUsuario"/>
-                        <MenuItem Header="Consulta de Empleados" Click="ConsultaEmpleado" />
-                        <MenuItem Header="Consulta de Vehiculos" Click="ConsultaVehiculo" />
-                        <MenuItem Header="Consulta de Compras" Click="ConsultaCompra"/>
-                        <MenuItem Header="Consulta de Roles" Click="ConsultaRol"/>
-                    </MenuItem>
-                </Menu>
-              
+       xmlns:PasswordHelper="clr-namespace:ProyectoFinal.Resources.PasswordHelper"
 
+        mc:Ignorable="d"
+        Title="Talleres Nelson" Height="193" Width="289">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="19*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" Margin="10,10,10,10" Grid.ColumnSpan="2">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Email"/>
+
+                <TextBox x:Name="NombreUsuarioTextBox" Text="{Binding Email}" />
+
+                <Label Content="Contraseña"/>
+                <PasswordBox x:Name="ContrasenaPasswordBox" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Clave, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+                    <Button x:Name="IngresarButton" Content="Iniciar Sesion" Margin="5,0" Click="IngresarButton_Click"/>
+                    <Button x:Name="CancelarButton"   Click="CancelarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/Resources/Eliminar.png" RenderTransformOrigin="0.5,0.5" Width="22" Height="23" >
+                                <Image.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="-1"/>
+                                        <SkewTransform/>
+                                        <RotateTransform/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Image.RenderTransform>
+                            </Image>
+                            <Label Content="Cancelar" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </StackPanel>
-            <Image Height="411" Width="800"  Stretch="Fill" Source="/Resources/FondoTaller.jpg"/>
         </StackPanel>
     </Grid>
 </Window>

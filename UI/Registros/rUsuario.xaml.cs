@@ -26,6 +26,10 @@ namespace ProyectoFinal.UI.Registros
         {
             InitializeComponent();
             this.DataContext = usuario;
+
+            RolesComboBox.ItemsSource = RolBLL.GetListado();
+            RolesComboBox.SelectedValuePath = "RolId";
+            RolesComboBox.DisplayMemberPath = "Descripcion";
         }
         private void BtnBuscar(object sender, RoutedEventArgs e)
         {
@@ -68,8 +72,8 @@ namespace ProyectoFinal.UI.Registros
             this.usuario = new Usuarios();
             this.DataContext = usuario;
             FechaIngresoDatePicker.SelectedDate = DateTime.Now;
-            //TextClave.Password = string.Empty;
-            //CheckActivo.IsChecked = false;
+            TextClave.Clear();
+           
         }
         private bool Validar()
         {
@@ -92,36 +96,28 @@ namespace ProyectoFinal.UI.Registros
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return esValido;
             }
-            /*if (TextEmail.Text.Length == 0)
-            {
-                esValido = false;
-                MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return esValido;
-            }*/
+           
             if (TextClave.Password.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return esValido;
             }
-           /* if (TextRolId.Text.Length == 0)
+            if(RolesComboBox.SelectedValue == null)
             {
                 esValido = false;
-                MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-            }*/
-           /* if (!Utilidades.Validar_Email(TextEmail.Text))
-            {
-                esValido = false;
-                MessageBox.Show("Email no valido ", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Seleccione un rol", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return esValido;
-            }*/
+            }
+          
             return esValido;
         }
         private void BtnGuardar(object sender, RoutedEventArgs e)
         {
             if (!Validar())
                 return;
-            // usuario.Clave = TextClave.Password;
+            
+
             var paso = UsuarioBLL.Guardar(usuario);
 
             if (paso)
@@ -137,25 +133,14 @@ namespace ProyectoFinal.UI.Registros
 
         private void BtnEliminar(object sender, RoutedEventArgs e)
         {
-          /*  if (TextUsuarioId.Text.Length != 0)
+            if (TextUsuarioId.Text.Length == 0)
             {
 
-                if (!UsuarioBLL.Existe(Convert.ToInt32(TextUsuarioId.Text)))
-                {
-                    MessageBox.Show("El registro no existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("ID vacio", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("UsuarioId Vacio", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
+                
             }
-            if (TextUsuarioId.Text.Length == 0 || TextAlias.Text.Length == 0 || TextNombre.Text.Length == 0 || TextEmail.Text.Length == 0 || TextClave.Password.Length == 0 || TextRolId.Text.Length == 0)
-            {
-                MessageBox.Show("Para eliminar un registro primero debe buscarlo", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
-                return;
-            }*/
+           
 
             if (UsuarioBLL.Eliminar(Convert.ToInt32(TextUsuarioId.Text)))
             {

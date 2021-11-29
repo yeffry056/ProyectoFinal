@@ -152,7 +152,49 @@ namespace ProyectoFinal.BLL
             }
             return lista;
         }
+        public static List<Usuarios> GetListado()
+        {
+            List<Usuarios> lista = new List<Usuarios>();
+            Contexto contexto = new Contexto();
 
+            try
+            {
+                lista = contexto.Usuarios.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
+        }
+        public static List<Usuarios> InicioSesion(string nombre, string contrasena)
+        {
+            // bool paso = false;
+            List<Usuarios> usuario = new List<Usuarios>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+                 usuario = contexto.Usuarios.Where(x => x.NombreUsuario.Equals(nombre) && x.Clave.Equals(GetSHA256(contrasena))).ToList();
+
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return usuario;
+        }
 
         public static bool Validar(string nombre, string contrasena)
         {
@@ -161,6 +203,8 @@ namespace ProyectoFinal.BLL
 
             try
             {
+                var usuario = contexto.Usuarios.Where(x => x.NombreUsuario.Equals(nombre) && x.Clave.Equals(GetSHA256(contrasena)));
+                
                 paso = contexto.Usuarios
                     .Any(u => u.NombreUsuario.Equals(nombre)
                                 && u.Clave.Equals(GetSHA256(contrasena))

@@ -26,18 +26,7 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                //Agregar la entidad que se desea insertar al contexto
-                //contexto.Clientes.Add(cliente);
-
-                /* foreach (var detalle in cliente.Detalle)
-                 {
-                     contexto.Entry(detalle.TipoTareaa).State = EntityState.Modified;
-                     // contexto.Entry(detalle.TiempoTotal).State = EntityState.Modified;
-                     detalle.TiempoTotal = cliente.Detalle.Sum(e => e.Tiempo);
-
-
-
-                 }*/
+               
                 if (contexto.Clientes.Add(cliente) != null)
                     paso = contexto.SaveChanges() > 0;
                 
@@ -59,28 +48,7 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                /* var grupoAnterior = contexto.Tarea
-                     .Where(x => x.TareaId == tarea.TareaId)
-                     .Include(x => x.Detalle)
-                     .ThenInclude(x => x.TipoTareaa)
-                     .AsNoTracking() 
-                     .SingleOrDefault();
-
-                 //busca la entidad en la base de datos y la elimina
-                 foreach (var detalle in tareaAnterior.Detalle)
-                 {
-                     detalle.TipoTareaa -= 1;
-                 }*/
-                //List<DetalleTarea> detalle = Buscar(tarea.TareaId).Detalle;
-                /*contexto.Database.ExecuteSqlRaw($"Delete FROM DetalleTarea Where TareaId={tarea.TareaId}");
-
-                foreach (var item in tarea.Detalle)
-                {
-
-                    contexto.Entry(item).State = EntityState.Added;
-                }*/
-                // List<DetalleTarea> nuevo = tarea.Detalle;
-                //marcar la entidad como modificada para que el contexto sepa como proceder
+                
                 contexto.Entry(cliente).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -106,13 +74,7 @@ namespace ProyectoFinal.BLL
 
                 if (cliente != null)
                 {
-                    //busca la entidad en la base de datos y la elimina
-                   /* foreach (var detalle in tarea.Detalle)
-                    {
-                        detalle.TipoTareaa.TipoId -= 1;
-
-                        //detalle.Persona.CantidadGrupos -= 1;
-                    }*/
+                    
 
                     contexto.Clientes.Remove(cliente); //remover la entidad
                     paso = contexto.SaveChanges() > 0;
@@ -137,11 +99,7 @@ namespace ProyectoFinal.BLL
             try
             {
                 cliente = contexto.Clientes.Find(id);
-                /*tarea = contexto.Tarea.Include(x => x.Detalle)
-                    .Where(x => x.TareaId == id)
-                     .Include(x => x.Detalle)
-                    .ThenInclude(x => x.TipoTareaa)
-                    .SingleOrDefault();*/
+               
             }
             catch (Exception)
             {
@@ -152,6 +110,26 @@ namespace ProyectoFinal.BLL
                 contexto.Dispose();
             }
             return cliente;
+        }
+        public static List<Clientes> GetClientes()
+        {
+            List<Clientes> Lista = new List<Clientes>();
+            Contexto contexto = new Contexto();
+
+            try
+            {
+               
+                Lista = contexto.Clientes.ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return Lista;
         }
         public static List<Clientes> GetList(Expression<Func<Clientes, bool>> criterio)
         {
