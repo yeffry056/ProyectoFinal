@@ -7,7 +7,7 @@
        xmlns:PasswordHelper="clr-namespace:ProyectoFinal.Resources.PasswordHelper"
 
         mc:Ignorable="d"
-        Title="Talleres Nelson" Height="193" Width="289">
+        Title="Login" Height="193" Width="289" Icon="/Resources/login.png">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="19*"/>
