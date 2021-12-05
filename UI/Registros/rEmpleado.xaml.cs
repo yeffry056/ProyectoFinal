@@ -42,7 +42,7 @@ namespace ProyectoFinal.UI.Registros
         {
             if (!Validar())
                 return;
-            // usuario.Clave = TextClave.Password;
+           
             var paso = EmpleadoBLL.Guardar(empleado);
 
             if (paso)
@@ -86,8 +86,8 @@ namespace ProyectoFinal.UI.Registros
             if (empleado != null)
             {
                 Limpiar();
-                //this.cliente = cliente;
-                  this.empleado = empleado;
+               
+                this.empleado = empleado;
 
             }
             else
@@ -114,18 +114,21 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxEmpleadoId.Focus();
                 return esValido;
             }
             if (TextBoxDireccion.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxDireccion.Focus();
                 return esValido;
             }
             if (TextBoxNombre.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxNombre.Focus();
                 return esValido;
             }
 
@@ -133,6 +136,7 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxTelefono.Focus();
                 return esValido;
             }
 
@@ -140,6 +144,7 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxCedula.Focus();
                 return esValido;
             }
 
@@ -147,6 +152,7 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxEncargado.Focus();
                 return esValido;
             }
             if (UsuarioComboBox.SelectedValue == null)

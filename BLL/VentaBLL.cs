@@ -37,7 +37,7 @@ namespace ProyectoFinal.BLL
 
                     if(detalle.Articulo.Inventario < detalle.CantidadArticulo)
                     {
-                        MessageBox.Show($"No queda suficiente articulo. solo quedan disponibles{detalle.Articulo.Inventario}", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                        MessageBox.Show($"No queda suficiente {detalle.Articulo.Fabricante} para realizar la venta. Articulos disponibles: {detalle.Articulo.Inventario}", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                         validar = false;
                     }
                     else
@@ -87,25 +87,40 @@ namespace ProyectoFinal.BLL
                      .AsNoTracking() 
                      .SingleOrDefault();
 
-                 //busca la entidad en la base de datos y la elimina
-                 foreach (var detalle in VentaAnterior.Detalle)
-                 {
-                    
+               // foreach (var item in ventas.Detalle)
+               // {
+
+
+
+                //busca la entidad en la base de datos y la elimina
+                foreach (var detalle in VentaAnterior.Detalle)
+                {
+                   // detalle.Articulo.Inventario += detalle.CantidadArticulo;
+                    // item.Articulo.Inventario += detalle.CantidadArticulo;
+
+                    //ventas.Detalle.Sum(x => x.Articulo.Inventario);
+                    //detalle.CantidadArticulo = 0;
                     detalle.DetalleId -= 1;
                     ventas.Total -= detalle.Precio * detalle.CantidadArticulo;
-                    
-
-                    
 
                 }
+              //  }
                 
                 contexto.Database.ExecuteSqlRaw($"Delete FROM VentasDetalle Where VentaId={ventas.VentaId}");
+                //contexto.Database.ExecuteSqlRaw($"Delete FROM Ventas Where VentaId={ventas.VentaId}");
 
                 foreach (var item in ventas.Detalle)
                 {
+
                     
                     ventas.Total += item.Precio * item.CantidadArticulo;
                     contexto.Entry(item).State = EntityState.Added;
+
+
+
+                    // item.Articulo.Inventario -= item.CantidadArticulo;
+                    //contexto.Entry(item.Articulo).State = EntityState.Added;
+
                 }
                
                 //marcar la entidad como modificada para que el contexto sepa como proceder

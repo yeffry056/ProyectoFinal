@@ -50,6 +50,7 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxCompraId.Focus();
                 return esValido;
             }
             if (UsuarioComboBox.SelectedValue == null)
