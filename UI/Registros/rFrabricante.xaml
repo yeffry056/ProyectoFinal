@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Frabricante" Height="270" Width="371" Background="#FF35D3F1" Icon="/Resources/registro (1).png">
+        Title="Registro de Frabricante" Height="270" Width="371" Background="#FF48E0C8" Icon="/Resources/registro (1).png">
     <Grid>
 
         <Label Content="FabricanteId" Margin="18,20,0,0" HorizontalAlignment="Left" Width="96" Height="40" VerticalAlignment="Top"/>
