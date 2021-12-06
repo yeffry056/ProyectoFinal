@@ -58,6 +58,11 @@ namespace ProyectoFinal.UI.Registros
 
         private void BtnEliminar(object sender, RoutedEventArgs e)
         {
+            if(TextBoxEmpleadoId.Text.Length == 0){
+                MessageBox.Show("No se pudo eliminar", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+                return;
+            }
+                
             if (EmpleadoBLL.Eliminar(Convert.ToInt32(TextBoxEmpleadoId.Text)))
             {
                 Limpiar();

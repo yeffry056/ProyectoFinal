@@ -49,42 +49,49 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxVehiculoId.Focus();
                 return esValido;
             }
             if (TextBoxMarca.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxMarca.Focus();
                 return esValido;
             }
             if (TextBoxModelo.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxModelo.Focus();
                 return esValido;
             }
             if (TextBoxColor.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxColor.Focus();
                 return esValido;
             }
             if (TextBoxAño.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxAño.Focus();
                 return esValido;
             }
             if (TextBoxChasis.Text.Length == 0)
             {
                  esValido = false;
                  MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextBoxChasis.Focus();
                 return esValido;
             }
             if (UsuarioComboBox.SelectedValue == null)
             {
                 esValido = false;
                 MessageBox.Show("Seleccione el usuario", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                UsuarioComboBox.Focus();
                 return esValido;
             }
             return esValido;
@@ -147,6 +154,11 @@ namespace ProyectoFinal.UI.Registros
 
         private void BtnEliminar(object sender, RoutedEventArgs e)
         {
+            if(TextBoxVehiculoId.Text.Length == 0)
+            {
+                MessageBox.Show("no se pudo eliminar el registro", "Exito", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if (VehiculoBLL.Eliminar(Convert.ToInt32(TextBoxVehiculoId.Text)))
             {
                 Limpiar();

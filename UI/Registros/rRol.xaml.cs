@@ -83,6 +83,11 @@ namespace ProyectoFinal.UI.Registros
 
         private void BtnEliminar(object sender, RoutedEventArgs e)
         {
+            if (TextRolID.Text.Length == 0)
+            {
+                MessageBox.Show("no se puedo eliminar el registro", "Exito", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if (RolBLL.Eliminar(Convert.ToInt32(TextRolID.Text)))
             {
                 Limpiar();
@@ -106,12 +111,14 @@ namespace ProyectoFinal.UI.Registros
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextRolID.Focus();
                 return esValido;
             }
             if (TextDescripcion.Text.Length == 0)
             {
                 esValido = false;
                 MessageBox.Show("Transaccion Fallida", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                TextDescripcion.Focus();
                 return esValido;
             }
             return esValido;

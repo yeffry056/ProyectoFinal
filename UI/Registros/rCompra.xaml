@@ -67,9 +67,9 @@
 
                     </StackPanel>
                     <StackPanel Height="167" HorizontalAlignment="Stretch" Margin="0,-130,0,0">
-                        <DataGrid x:Name="Contenido" ItemsSource="{Binding CompraDetalles}" AutoGenerateColumns="False" Grid.ColumnSpan="2" Height="166" >
+                        <DataGrid x:Name="Contenido" ItemsSource="{Binding CompraDetalles}" AutoGenerateColumns="False"  Height="166" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="CompraId" Binding="{Binding CompraId}" Visibility="Hidden"/>
+                                <DataGridTextColumn Header="CompraId" Binding="{Binding detalle.CompraId}" Visibility="Hidden"/>
                                 <DataGridTextColumn Header="Articulo" Binding="{Binding Articulo}"/>
                                 <DataGridTextColumn Header="Costo" Binding="{Binding Costo}"/>
                             </DataGrid.Columns>

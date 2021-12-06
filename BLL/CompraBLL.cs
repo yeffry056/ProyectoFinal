@@ -27,6 +27,16 @@ namespace ProyectoFinal.BLL
 
             try
             {
+                contexto.Compras.Add(compra);
+
+                foreach (var detalle in compra.CompraDetalles)
+                {
+                    compra.Total += detalle.Costo;
+                   
+
+                }
+              
+
                 if (contexto.Compras.Add(compra) != null)
                     paso = contexto.SaveChanges() > 0;
             }
@@ -48,7 +58,38 @@ namespace ProyectoFinal.BLL
 
             try
             {
+                var VentaAnterior = contexto.Compras
+                    .Where(x => x.CompraId == compra.CompraId)
+                    .Include(x => x.CompraDetalles)
+                    .AsNoTracking()
+                    .SingleOrDefault();
+
+                // foreach (var item in ventas.Detalle)
+                // {
+
+
+
+                //busca la entidad en la base de datos y la elimina
+                foreach (var detalle in VentaAnterior.CompraDetalles)
+                {
+                  
+                    detalle.CompraId -= 1;
+                    compra.Total -= detalle.Costo;
+
+                }
                 contexto.Database.ExecuteSqlRaw($"Delete FROM CompraDetalle Where CompraId={compra.CompraId}");
+
+                foreach (var item in compra.CompraDetalles)
+                {
+
+
+                    compra.Total += item.Costo;
+                    contexto.Entry(item).State = EntityState.Added;
+
+
+
+
+                }
                 contexto.Entry(compra).State = EntityState.Modified;
                 paso = contexto.SaveChanges() > 0;
             }
@@ -98,9 +139,11 @@ namespace ProyectoFinal.BLL
 
             try
             {
+               
                 //compra = contexto.Compras.Find(id);
                 compra = contexto.Compras.Include(x => x.CompraDetalles)
                     .Where(p => p.CompraId == id)
+                    .Include(x => x.CompraDetalles)
                     .SingleOrDefault();
 
             }

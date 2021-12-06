@@ -220,6 +220,11 @@ namespace ProyectoFinal.UI.Registros
         {
             if (DetalleDataGrid.Items.Count >= 1 && DetalleDataGrid.SelectedIndex <= DetalleDataGrid.Items.Count - 1)
             {
+                if(DetalleDataGrid.SelectedValue == null)
+                {
+                    MessageBox.Show("Seleccione la fila que desea eliminar", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
                 venta.Detalle.RemoveAt(DetalleDataGrid.SelectedIndex);
                 Cargar();
             }

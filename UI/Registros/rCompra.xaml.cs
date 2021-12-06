@@ -117,6 +117,11 @@ namespace ProyectoFinal.UI.Registros
 
         private void BtnEliminar(object sender, RoutedEventArgs e)
         {
+            if(TextBoxCompraId.Text.Length == 0)
+            {
+                MessageBox.Show("No se pudo eliminar el registro", "Exito", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
             if (CompraBLL.Eliminar(Convert.ToInt32(TextBoxCompraId.Text)))
             {
                 Limpiar();
@@ -152,17 +157,18 @@ namespace ProyectoFinal.UI.Registros
                     MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            else
-            {
-                Compra.CompraDetalles.Add(new CompraDetalle( Compra.CompraId, texBoxArticulo.Text, Convert.ToSingle(TextBoxCosto.Text)));
-                
-                Cargar();
-                TextBoxTotal.Text += Compra.CompraDetalles.Sum(x => x.Costo).ToString();
-                
-                texBoxArticulo.Focus();
-                TextBoxCosto.Clear();
-                texBoxArticulo.Clear();
-            }
+            
+            
+            Compra.CompraDetalles.Add(new CompraDetalle( Compra.CompraId, texBoxArticulo.Text, Convert.ToSingle(TextBoxCosto.Text)));
+           
+            Cargar();
+            TextBoxTotal.Text = Compra.CompraDetalles.Sum(x => x.Costo).ToString();
+
+
+            texBoxArticulo.Focus();
+            TextBoxCosto.Clear();
+            texBoxArticulo.Clear();
+            
         
         }
 
@@ -170,6 +176,13 @@ namespace ProyectoFinal.UI.Registros
         {
             if (Contenido.Items.Count >= 1 && Contenido.SelectedIndex <= Contenido.Items.Count - 1)
             {
+                if(Contenido.SelectedValue == null)
+                {
+                    MessageBox.Show("Seleccione la fila que desea eliminar", "Fallo",
+                   MessageBoxButton.OK, MessageBoxImage.Error);
+                    Contenido.Focus();
+                    return;
+                }
                 Compra.CompraDetalles.RemoveAt(Contenido.SelectedIndex);
                 Cargar();
             }
