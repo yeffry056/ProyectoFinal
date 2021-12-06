@@ -33,12 +33,16 @@ namespace ProyectoFinal.UI.Consultas
             {
                 switch (FiltroComboBox.SelectedIndex)
                 {
-                    case 0: //UsuarioId
-                        listado = VentaBLL.GetList(e => e.ClienteId == Utilidades.ToInt(CriterioTextBox.Text));
+                    case 0: 
+                        listado = VentaBLL.GetList(e => e.VentaId == Utilidades.ToInt(CriterioTextBox.Text));
+                        DesdeDataPicker.SelectedDate = null;
+                        HastaDatePicker.SelectedDate = null;
                         break;
 
-                    case 1: //Nombre                      
+                    case 1:                    
                         listado = VentaBLL.GetList(e => e.Descripcion.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                        DesdeDataPicker.SelectedDate = null;
+                        HastaDatePicker.SelectedDate = null;
                         break;
                 }
             }
@@ -47,15 +51,31 @@ namespace ProyectoFinal.UI.Consultas
                 listado = VentaBLL.GetList(c => true);
             }
 
-            if (DesdeDataPicker.SelectedDate != null)
-                listado = VentaBLL.GetList(c => c.Fecha.Date >= DesdeDataPicker.SelectedDate);
+            if(listado == null)
+            {
+                if (DesdeDataPicker.SelectedDate != null)
+                    listado = VentaBLL.GetList(c => c.Fecha.Date >= DesdeDataPicker.SelectedDate);
 
-            if (HastaDatePicker.SelectedDate != null)
-                listado = VentaBLL.GetList(c => c.Fecha.Date <= HastaDatePicker.SelectedDate);
+                if (HastaDatePicker.SelectedDate != null)
+                    listado = VentaBLL.GetList(c => c.Fecha.Date <= HastaDatePicker.SelectedDate);
+            }
+           
 
             // listado = UsuariosBLL.GetList();
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
+        }
+
+        private void enter(object sender, MouseEventArgs e)
+        {
+            CriterioTextBox.Text = null;
+            FiltroComboBox.SelectedItem = null;
+        }
+
+        private void limpiar(object sender, MouseEventArgs e)
+        {
+            CriterioTextBox.Text = null;
+            FiltroComboBox.SelectedItem = null;
         }
     }
 }

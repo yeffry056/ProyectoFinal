@@ -5,35 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Frabricante" Height="260" Width="334" Background="#FF35D3F1">
+        Title="Registro de Frabricante" Height="270" Width="371" Background="#FF35D3F1" Icon="/Resources/registro (1).png">
     <Grid>
 
         <Label Content="FabricanteId" Margin="18,20,0,0" HorizontalAlignment="Left" Width="96" Height="40" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextFabricanteId" Text="{Binding FabricanteId}" Width="100" Height="17.96" Margin="22,47,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextFabricanteId" Text="{Binding FabricanteId}" Width="100" Height="23" Margin="22,42,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Nombre" Margin="19,134,0,0" HorizontalAlignment="Left" Width="96" Height="41" VerticalAlignment="Top" />
-        <TextBox x:Name="TextNombre" Text="{Binding Nombres}" Margin="22,157,0,0" HorizontalAlignment="Left" Width="231" Height="18" VerticalAlignment="Top" />
-        <Button  Margin="132,39,0,0" Click="BtnBuscar" HorizontalAlignment="Left" Height="23" VerticalAlignment="Top" Width="24">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Resources/buscar.png" Height="21" Width="23" />
+        <TextBox x:Name="TextNombre" Text="{Binding Nombres}" Margin="22,153,0,0" HorizontalAlignment="Left" Width="231" Height="22" VerticalAlignment="Top" />
+        <Button  Margin="132,39,0,0" Click="BtnBuscar" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="22">
+            <StackPanel  Width="30" Height="21" Margin="-15,0,0,0" VerticalAlignment="Stretch" HorizontalAlignment="Center" >
+                <Image Source="/Resources/buscar.png" Height="20" Width="18" Margin="5,0,0,0" />
 
             </StackPanel>
         </Button>
-        <Button Width="69" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,191,0,0" Click="BtnNuevo">
+        <Button Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,191,0,0" Click="BtnNuevo">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Resources/nuevo.png" Height="20" Width="22" />
                 <Label Content="Nuevo" Margin="-3,-4.5,0,0"/>
             </StackPanel>
         </Button>
-        <Button VerticalAlignment="Top" Margin="100,191,0,0" Click="BtnGuardar" HorizontalAlignment="Left" Width="69" >
-            <StackPanel Orientation="Horizontal">
+        <Button VerticalAlignment="Top" Margin="130,191,0,0" Click="BtnGuardar" HorizontalAlignment="Left" Width="100" >
+            <StackPanel Orientation="Horizontal" Margin="-6,0,0,0">
                 <Image Source="/Resources/Guardar.png" Height="20" Width="22" />
                 <Label Content="Guardar" Margin="-3,-4.5,0,0"/>
             </StackPanel>
         </Button>
-        <Button Width="73" VerticalAlignment="Top" Margin="180,191,0,0" Click="BtnEliminar" HorizontalAlignment="Left" >
-            <StackPanel Orientation="Horizontal">
+        <Button Width="100" VerticalAlignment="Top" Margin="238,191,0,0" Click="BtnEliminar" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal" Margin="-6,0,0,0">
                 <Image Source="/Resources/Eliminar.png" Height="20" Width="22" />
-                <Label Content="Eliminar" Margin="-3,-4.5,0,0"/>
+                <Label Content="Eliminar" Margin="-3,-4.5,0,0" RenderTransformOrigin="0.5,0.5">
+
+                </Label>
             </StackPanel>
         </Button>
         <ComboBox x:Name="UsuarioComboBox" SelectedValue="{Binding UsuarioId}" HorizontalAlignment="Left" Margin="20,103,0,0" VerticalAlignment="Top" Width="120"/>

@@ -36,6 +36,8 @@ namespace ProyectoFinal.UI.Consultas
                 {
                     case 0: //CompraId
                         listado = CompraBLL.GetList(e => e.CompraId == Utilidades.ToInt(CriterioTextBox.Text));
+                        DesdeDataPicker.SelectedDate = null;
+                        HastaDatePicker.SelectedDate = null;
                         break;
 
                     case 1: //Nombre                      
@@ -47,16 +49,31 @@ namespace ProyectoFinal.UI.Consultas
             {
                 listado = CompraBLL.GetList(c => true);
             }
+            if(listado == null)
+            {
+                if (DesdeDataPicker.SelectedDate != null)
+                    listado = CompraBLL.GetList(c => c.Fecha.Date >= DesdeDataPicker.SelectedDate);
 
-            if (DesdeDataPicker.SelectedDate != null)
-                listado = CompraBLL.GetList(c => c.Fecha.Date >= DesdeDataPicker.SelectedDate);
-
-            if (HastaDatePicker.SelectedDate != null)
-                listado = CompraBLL.GetList(c => c.Fecha.Date <= HastaDatePicker.SelectedDate);
+                if (HastaDatePicker.SelectedDate != null)
+                    listado = CompraBLL.GetList(c => c.Fecha.Date <= HastaDatePicker.SelectedDate);
+            }
+            
 
             // listado = UsuariosBLL.GetList();
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
+        }
+
+        private void enter(object sender, MouseEventArgs e)
+        {
+            CriterioTextBox.Text = null;
+            FiltroComboBox.SelectedItem = null;
+        }
+
+        private void limpiar(object sender, MouseEventArgs e)
+        {
+            CriterioTextBox.Text = null;
+            FiltroComboBox.SelectedItem = null;
         }
     }
 }

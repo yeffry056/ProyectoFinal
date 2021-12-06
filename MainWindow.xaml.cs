@@ -28,6 +28,7 @@ namespace ProyectoFinal
         public MainWindow()
         {
             InitializeComponent();
+            NombreUsuarioTextBox.Focus();
         }
         private void IngresarButton_Click(object sender, RoutedEventArgs e)
         {
@@ -56,5 +57,57 @@ namespace ProyectoFinal
             Application.Current.Shutdown();
         }
 
+        private void enter(object sender, TouchEventArgs e)
+        {
+            bool paso = UsuarioBLL.Validar(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password);
+
+            if (paso)
+            {
+                //var usuario = UsuarioBLL.InicioSesion(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password);
+
+                rMenu m = new rMenu(UsuarioBLL.InicioSesion(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password));
+                m.Show();
+                this.Close();
+
+            }
+            else
+            {
+                MessageBox.Show("Error Nombre Usuario o Contraseña incorrecta!", "Error!");
+                ContrasenaPasswordBox.Clear();
+                NombreUsuarioTextBox.Focus();
+            }
+        }
+
+        private void enter(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                bool paso = UsuarioBLL.Validar(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password);
+
+                if (paso)
+                {
+                    //var usuario = UsuarioBLL.InicioSesion(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password);
+
+                    rMenu m = new rMenu(UsuarioBLL.InicioSesion(NombreUsuarioTextBox.Text, ContrasenaPasswordBox.Password));
+                    m.Show();
+                    this.Close();
+
+                }
+                else
+                {
+                    MessageBox.Show("Error Nombre Usuario o Contraseña incorrecta!", "Error!");
+                    ContrasenaPasswordBox.Clear();
+                    NombreUsuarioTextBox.Focus();
+                }
+            }
+        }
+
+        private void EnterSiguiente(object sender, KeyEventArgs e)
+        {
+            if(e.Key == Key.Enter)
+            {
+                ContrasenaPasswordBox.Focus();
+            }
+        }
     }
 }

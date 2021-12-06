@@ -5,51 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Articulos" Height="453" Width="477">
+        Title="Registro de Articulos" Height="453" Width="477" Background="#FF48E0C8" Icon="/Resources/registro (1).png">
     <Grid>
-        <Label Content="ArticuloId" HorizontalAlignment="Left" Margin="18,17,0,0" VerticalAlignment="Top"/>
+        <Label Content="ArticuloId" HorizontalAlignment="Left" Margin="18,20,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextArticuloId" HorizontalAlignment="Left" Margin="21,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="{Binding ArticuloId}"/>
-        <Label Content="Fecha" HorizontalAlignment="Left" Margin="18,64,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="18,67,0,0" VerticalAlignment="Top"/>
         <DatePicker x:Name="DataFecha" HorizontalAlignment="Left" Margin="21,87,0,0" VerticalAlignment="Top" Width="120" SelectedDate="{Binding Fecha}"/>
-        <Button  Margin="155,35,0,0" Click="BtnBuscar" HorizontalAlignment="Left" Width="70" Height="26" VerticalAlignment="Top">
+        <Button  Margin="155,35,0,0" Click="BtnBuscar" HorizontalAlignment="Left" Width="100" Height="29" VerticalAlignment="Top">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Resources/buscar.png" Height="21" Width="23" />
                 <Label Content="Buscar" Margin="-3,-3,0,0"/>
             </StackPanel>
         </Button>
-        <Label Content="Descripcion " HorizontalAlignment="Left" Margin="18,165,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TextDescripcion" HorizontalAlignment="Left" Margin="21,190,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="18" Text="{Binding Descripcion}"/>
+        <Label Content="Descripcion " HorizontalAlignment="Left" Margin="18,168,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextDescripcion" HorizontalAlignment="Left" Margin="21,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="24.96" Text="{Binding Descripcion}"/>
         <ComboBox x:Name="FabricanteComboBox" HorizontalAlignment="Left" Margin="21,139,0,0" VerticalAlignment="Top" Width="120" SelectedValue="{Binding FabricanteId}"/>
-        <Label Content="Fabricante" HorizontalAlignment="Left" Margin="18,115,0,0" VerticalAlignment="Top" />
-        <Label Content="Estado" HorizontalAlignment="Left" Margin="18,213,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fabricante" HorizontalAlignment="Left" Margin="18,118,0,0" VerticalAlignment="Top" />
+        <Label Content="Estado" HorizontalAlignment="Left" Margin="18,216,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextEstado" Text="{Binding Estado}" HorizontalAlignment="Left" Margin="21,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200"/>
 
-        <Button Width="69" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,362,0,0" Click="BtnNuevo">
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Resources/nuevo.png" Height="20" Width="22" />
+        <Button Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="59,362,0,0" Click="BtnNuevo">
+            <StackPanel Orientation="Horizontal" Width="68" Margin="0,0,0,0">
+                <Image Source="/Resources/nuevo.png" Height="20" Width="22" Margin="-2,0,0,0" />
                 <Label Content="Nuevo" Margin="-3,-4.5,0,0"/>
             </StackPanel>
         </Button>
-        <Button VerticalAlignment="Top" Margin="166,362,0,0" Click="BtnGuardar" HorizontalAlignment="Left" Width="69" >
-            <StackPanel Orientation="Horizontal">
-                <Image Source="/Resources/Guardar.png" Height="20" Width="22" />
+        <Button VerticalAlignment="Top" Margin="169,362,0,0" Click="BtnGuardar" HorizontalAlignment="Left" Width="100" >
+            <StackPanel Orientation="Horizontal" Width="75" Margin="-4,0,0,0">
+                <Image Source="/Resources/Guardar.png" Height="20" Width="22" Margin="-2,0,0,0" />
                 <Label Content="Guardar" Margin="-3,-4.5,0,0"/>
             </StackPanel>
         </Button>
-        <Button Width="73" VerticalAlignment="Top" Margin="264,362,0,0" Click="BtnEliminar" HorizontalAlignment="Left" >
-            <StackPanel Orientation="Horizontal">
+        <Button Width="100" VerticalAlignment="Top" Margin="278,362,0,0" Click="BtnEliminar" HorizontalAlignment="Left" >
+            <StackPanel Orientation="Horizontal" Margin="-6.5,0,0,0">
                 <Image Source="/Resources/Eliminar.png" Height="20" Width="22" />
                 <Label Content="Eliminar" Margin="-3,-4.5,0,0"/>
             </StackPanel>
         </Button>
-        <Label Content="Costo" HorizontalAlignment="Left" Margin="18,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="Costo" HorizontalAlignment="Left" Margin="18,263,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextCosto" Text="{Binding Costo}" HorizontalAlignment="Left" Margin="21,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Precio" HorizontalAlignment="Left" Margin="154,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="Precio" HorizontalAlignment="Left" Margin="154,263,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextPrecio" Text="{Binding Precio}" HorizontalAlignment="Left" Margin="157,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Inventario" HorizontalAlignment="Left" Margin="288,260,0,0" VerticalAlignment="Top"/>
+        <Label Content="Inventario" HorizontalAlignment="Left" Margin="288,263,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TextInventario" Text="{Binding Inventario}" HorizontalAlignment="Left" Margin="291,284,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <CheckBox x:Name="CheckBoxServicio" Content="Servicio" HorizontalAlignment="Left" Margin="350,47,0,0" VerticalAlignment="Top"/>
-        <Label Content="Usuario" HorizontalAlignment="Left" Margin="185,115,0,0" VerticalAlignment="Top"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="185,118,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="UsuarioComboBox" SelectedValue="{Binding UsuarioId}" HorizontalAlignment="Left" Margin="185,139,0,0" VerticalAlignment="Top" Width="120"/>
 
     </Grid>

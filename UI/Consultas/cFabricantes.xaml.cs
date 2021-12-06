@@ -35,10 +35,13 @@ namespace ProyectoFinal.UI.Consultas
                 {
                     case 0: //UsuarioId
                         listado = FabricanteBLL.GetList(e => e.FabricanteId == Utilidades.ToInt(CriterioTextBox.Text));
+                    
+                       
                         break;
 
                     case 1: //Nombre                      
                         listado = FabricanteBLL.GetList(e => e.Nombres.ToLower().Contains(CriterioTextBox.Text.ToLower()));
+                        
                         break;
                 }
             }

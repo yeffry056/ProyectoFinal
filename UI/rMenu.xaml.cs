@@ -135,5 +135,7 @@ namespace ProyectoFinal.UI
             rFrabricante fabricantes = new rFrabricante(usuarioInicio);
             fabricantes.Show();
         }
+
+       
     }
 }

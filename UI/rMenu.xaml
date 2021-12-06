@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI"
         mc:Ignorable="d"
-        Title="Menu principal" Height="450" Width="800" Icon="/Resources/icono.icon.png">
+        Title="Menu principal" Height="432" Width="736" Icon="/Resources/icono.icon.png">
     <Grid>
         <StackPanel>
             <StackPanel Orientation="Horizontal">
-                <Menu Height="23" Width="62" VerticalAlignment="Top">
-                    <MenuItem Header="Registros">
+                <Menu Height="23" Width="86" VerticalAlignment="Top" >
+                    <MenuItem Header="Registros" Height="24" Width="165">
                         <MenuItem Header="Registro Clientes" Click="rClientesClik" />
                         <MenuItem Header="Registro Usuarios " Click="RegistrosClik"/>
                         <MenuItem Header="Registro Empleados" Click="EmpleadosClick" />
@@ -23,7 +23,7 @@
                     </MenuItem>
                 </Menu>
                 <Menu Height="23" Width="737" VerticalAlignment="Top">
-                    <MenuItem Header="Consultas">
+                    <MenuItem Header="Consultas" Height="23">
                         <MenuItem Header="Consulta de Clientes " Click="cClientesClick" />
                         <MenuItem Header="Consulta de Usuarios " Click="ConsultaUsuario"/>
                         <MenuItem Header="Consulta de Empleados" Click="ConsultaEmpleado" />
@@ -38,7 +38,7 @@
 
 
             </StackPanel>
-            <Image Height="411" Width="800"  Stretch="Fill" Source="/Resources/FondoTaller.jpg"/>
+            <Image Height="408" Width="800"  Stretch="Fill" Source="/Resources/FondoTaller.jpg"/>
         </StackPanel>
     </Grid>
 </Window>

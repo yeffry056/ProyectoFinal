@@ -56,7 +56,12 @@ namespace ProyectoFinal.UI.Registros
 
             }
             else
+            {
+                MessageBox.Show("El registro no existe", "Fallo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 Limpiar();
+               
+            }
+               
 
            
 

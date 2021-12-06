@@ -7,46 +7,43 @@
         xmlns:PasswordHelper="clr-namespace:ProyectoFinal.Resources.PasswordHelper"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="ProyectoFinal.UI.Registros.rUsuario"
         mc:Ignorable="d"
-        Title="Registro de Usuarios" Height="302" Width="367" Icon="/Resources/registro (1).png">
+        Title="Registro de Usuarios" Height="302" Width="367" Icon="/Resources/registro (1).png" Background="#FF48E0C8">
     <Grid>
         <TextBox x:Name="TextUsuarioId" HorizontalAlignment="Left" Margin="69,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="64" Text="{Binding UsuarioId}"/>
         <TextBox x:Name="TextUsuario"  HorizontalAlignment="Left" Margin="69,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192" Text="{Binding NombreUsuario}"/>
         <TextBox x:Name="TextNombre"  HorizontalAlignment="Left" Margin="69,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="192"  Text="{Binding Nombre}"/>
-        <Button HorizontalAlignment="Left" Margin="142,26,0,0" VerticalAlignment="Top" Width="26" Click="BtnBuscar" >
-            <Image Height="16" Width="21" Source="/Resources/buscar.png" />
+        <Button HorizontalAlignment="Left" Margin="142,26,0,0" VerticalAlignment="Top" Width="25" Click="BtnBuscar" Height="25" >
+            <Image Height="16" Width="20" Source="/Resources/buscar.png" Margin="-15,0,0,0" />
 
         </Button>
-        <Button HorizontalAlignment="Left" Margin="53,189,0,0" VerticalAlignment="Top" Height="43" Width="77"  BorderThickness="1,1,1,1" Click="BtnNuevo">
+        <Button HorizontalAlignment="Left" Margin="39,189,0,0" VerticalAlignment="Top" Height="43" Width="83"  BorderThickness="1,1,1,1" Click="BtnNuevo">
             <StackPanel Orientation="Vertical" Width="74" VerticalAlignment="Center" Height="39" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center">
-                <Image Height="22" Width="32" HorizontalAlignment="Stretch" Margin="0,3,0,0" Source="/Resources/nuevo.png" />
+                <Image Height="22" Width="32" HorizontalAlignment="Stretch" Source="/Resources/nuevo.png" />
                 <Label Content="Nuevo" RenderTransformOrigin="0.52,0.338" Height="23" Width="62" HorizontalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,-7,0,0" />
 
 
             </StackPanel>
         </Button>
-        <Button HorizontalAlignment="Left" Margin="135,189,0,0" VerticalAlignment="Top" Height="43" Width="76" Click="BtnGuardar" >
+        <Button HorizontalAlignment="Left" Margin="132,189,0,0" VerticalAlignment="Top" Height="43" Width="83" Click="BtnGuardar" >
             <StackPanel Orientation="Vertical" Width="74" Height="39" HorizontalAlignment="Center" VerticalAlignment="Stretch">
-                <Image  Height="18" Width="32" Margin="0,3,0,0" Source="/Resources/Guardar.png"/>
+                <Image  Height="18" Width="32" Source="/Resources/Guardar.png"/>
                 <Label Content="Guardar" HorizontalAlignment="Center" Margin="0,-4,0,0" />
             </StackPanel>
 
         </Button>
-        <Button HorizontalAlignment="Left" Margin="216,189,0,0" VerticalAlignment="Top" Height="42" Width="77" Click="BtnEliminar" >
-            <StackPanel Orientation="Vertical" Width="74" Height="39">
-                <Image  Height="22" Width="32" Margin="0,2,0,0" Source="/Resources/Eliminar.png" />
+        <Button HorizontalAlignment="Left" Margin="225,189,0,0" VerticalAlignment="Top" Height="42" Width="83" Click="BtnEliminar" >
+            <StackPanel Orientation="Vertical" Width="74" Height="39" Margin="-13,0,0,0">
+                <Image  Height="22" Width="32" Source="/Resources/Eliminar.png" />
                 <Label Content="Eliminar" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,-7,0,0" />
             </StackPanel>
         </Button>
         <PasswordBox x:Name="TextClave" HorizontalAlignment="Left" Margin="69,133,0,0" VerticalAlignment="Top" Width="192" PasswordHelper:PasswordHelper.Attach="True" PasswordHelper:PasswordHelper.Password="{Binding Clave, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}"/>
         <DatePicker x:Name="FechaIngresoDatePicker" HorizontalAlignment="Left" Margin="69,51,0,0" VerticalAlignment="Top" SelectedDate="{Binding Fecha}" Width="101"/>
-        <materialDesign:Card Content="UsuarioId" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
-        <materialDesign:Card Content="Fecha" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
-        <materialDesign:Card Content="Nombre" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
-        <materialDesign:Card Content="Usuario" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
-        <materialDesign:Card Content="Clave" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
-        <materialDesign:Flipper HorizontalAlignment="Left" Margin="277,52,0,0" VerticalAlignment="Top"/>
-        <materialDesign:DialogHost Content="DialogHost" HorizontalAlignment="Left" Margin="262,12,0,0" VerticalAlignment="Top"/>
-        <materialDesign:ColorZone HorizontalAlignment="Left" Margin="72,82,0,0"/>
+        <Label Content="UsuarioId" HorizontalAlignment="Left" Margin="10,28,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha" HorizontalAlignment="Left" Margin="10,54,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nombre" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top"/>
+        <Label Content="Usuario" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top"/>
+        <Label Content="Clave" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
         <Label Content="Rol" HorizontalAlignment="Left" Margin="174,48,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="RolesComboBox" SelectedValue="{Binding RolId}" HorizontalAlignment="Left" Margin="201,51,0,0" VerticalAlignment="Top" Width="120"/>
 

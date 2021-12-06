@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoFinal.UI.Consultas"
         mc:Ignorable="d"
-        Title="cFabricantes" Height="450" Width="309">
+        Title="Consulta de Fabricantes" Height="450" Width="329" Background="#FF4ED0D7" Icon="/Resources/settingstoolswheel-115840_115789.ico">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="10,5,10,0">
 
@@ -28,8 +28,8 @@
 
                 </StackPanel>
 
-                <Button x:Name="BuscarButton" Height="30" Width="66" Click="ConsultarButton_Click" Margin="0,2,0,0" VerticalAlignment="Center" >
-                    <StackPanel Orientation="Horizontal" >
+                <Button x:Name="BuscarButton" Height="30" Width="85" Click="ConsultarButton_Click" Margin="0,2,0,0" VerticalAlignment="Center" >
+                    <StackPanel Orientation="Horizontal" Width="70" Margin="-10,-2,0,0" >
                         <Image Source="/Resources/Buscar.png" Height="20" Width="18"  />
                         <Label Content="Buscar" />
                     </StackPanel>
@@ -37,7 +37,7 @@
 
             </StackPanel>
             <StackPanel HorizontalAlignment="Left" >
-                <DataGrid x:Name="DatosDataGrid" Height="350" Width="289">
+                <DataGrid x:Name="DatosDataGrid" Height="350" Width="308" IsReadOnly="True">
 
                 </DataGrid>
             </StackPanel>
